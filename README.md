@@ -1,6 +1,6 @@
 # Target_Color_Swap
 
-python testswap.py --image input-image-path --output output-directory-to-save --target_rgb 37 88 128
+python testswap.py --image /input-image-path/ --output /output-directory-to-save/ --target_rgb 37 88 128
 
 In between the exceution, there will be a palette with the cluster of colors. Input an target cluster you wish. 
     
@@ -9,6 +9,8 @@ In between the exceution, there will be a palette with the cluster of colors. In
 Default cluster size is 2 to 7 but you can change that with 'mink' and 'maxk' values.
 
 You can also play with 'shades_range' (for darker side of the cluster) and 'tint_range' (for lighter side of the cluster) arguments, if your target cluster are not properly replaced.
+
+'target_rgb' takes RGB value of a color, you like to see.
  
 
 ## Other Arguments
