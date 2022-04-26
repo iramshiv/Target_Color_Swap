@@ -1,9 +1,6 @@
 from PIL import Image
 import argparse
 
-__author__ = "Sethuraman"
-__email__ = "sethuraman@inato.co.in"
-
 #  construct the argument parser and parse the arguments
 from kmeans.kmeans import kmeanss
 
