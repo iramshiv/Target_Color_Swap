@@ -29,3 +29,6 @@ You can also play with *--shades_range* (for darker side of the cluster) and *--
 </p>
 
   - Required library : PIL, Python, matplotlib, cv2, numpy, pandas, sklearn
+
+#References:
+kMeans Parallel: https://towardsdatascience.com/an-approach-for-choosing-number-of-clusters-for-k-means-c28e614ecb2c
