@@ -2,6 +2,9 @@
 
 python testswap.py --image input-image-path --output output-directory-to-save --target_rgb 37 88 128
 
+In between the exceution, there will be a palette with the cluster of colors. Input an target cluster you wish. 
+   *Note: Clusters start from '0'.
+
 ## Other Arguments
    
    --mink: default is 2. Minimum cluster
