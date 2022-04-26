@@ -12,9 +12,6 @@ from matplotlib.pyplot import ion
 from sklearn.cluster import KMeans
 from joblib import Parallel, delayed
 
-__author__ = "Sethuraman"
-__email__ = "sethuraman@inato.co.in"
-
 def kmeanss(simage, min_k, max_k):
     src_image = cv2.imread(simage)
     image = cv2.cvtColor(src_image, cv2.COLOR_BGR2RGB)
