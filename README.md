@@ -9,8 +9,8 @@ python testswap.py --image input-image-path --output output-directory-to-save --
    --tint_range: default is 5. Finds 5 next nearest tint(light) to replace.
     
 <p float="left">
-    <img src="3a.jpg" title="Source Image"  width="360" height="360">
-    <img src="result.jpg" title="Target Image" width="360" height="360">
+    <img src="3a.jpg" title="Source Image"  width="512" height="512">
+    <img src="result.jpg" title="Target Image" width="512" height="512">
 </p>
 
   - Required library : PIL, Python, matplotlib, cv2, numpy, pandas, sklearn
