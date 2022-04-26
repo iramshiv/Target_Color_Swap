@@ -6,11 +6,11 @@ In between the exceution, there will be a palette with the cluster of colors. In
     
     *Note: Clusters start from '0'.
 
-Default cluster size is 2 to 7 but you can change that with 'mink' and 'maxk' values.
+Default cluster size is 2 to 7 but you can change that with *--mink* and *--maxk* values.
 
-You can also play with 'shades_range' (for darker side of the cluster) and 'tint_range' (for lighter side of the cluster) arguments, if your target cluster are not properly replaced.
+You can also play with *--shades_range* (for darker side of the cluster) and *--tint_range* (for lighter side of the cluster) arguments, if your target cluster are not properly replaced.
 
-'target_rgb' takes RGB value of a color, you like to see.
+*--target_rgb* takes RGB value of a color, you like to see.
  
 
 ## Other Arguments
