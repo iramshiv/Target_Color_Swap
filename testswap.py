@@ -49,9 +49,9 @@ t5 = round(int(cluster_centers_[target_cluster][2])) + (tint_range * 13)
 
 def roundoff(tt):
     tt = int(tt)
-    if tt >= 255:
+    if tt > 255:
         tt = 255
-    elif tt <= 0:
+    elif tt < 0:
         tt = 0
     else:
         tt = tt
@@ -89,7 +89,7 @@ for x in range(0, img_width):
         if data[0] in range(roundoff(t), roundoff(t1)) and data[1] in range(roundoff(t2), roundoff(t3)) and data[2] in range(roundoff(t4), roundoff(t5)):
             src_img.putpixel((x, y), (
                 zerooff(args["target_rgb"][0], data[0], roundoff(t1)), zerooff(args["target_rgb"][1], data[1], roundoff(t3)),
-                zerooff(args["target_rgb"][2], data[2], roundoff(t5)) * 100))
+                zerooff(args["target_rgb"][2], data[2], roundoff(t5))))
 
 src_img.save(str(args["output"]) + '/result.jpg')
 res_img = Image.open(str(args["output"]) + '/result.jpg')
