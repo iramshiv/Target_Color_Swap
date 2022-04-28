@@ -14,12 +14,14 @@ ap.add_argument("-o", "--output", required=True)
 ap.add_argument("-rgb", "--target_rgb", required=True, nargs='+', type=int, default=[0, 0, 0])
 ap.add_argument("-k", "--mink", default=2, type=int)
 ap.add_argument("-k1", "--maxk", default=7, type=int)
-ap.add_argument("-s", "--shades_range", default=5, type=int)
-ap.add_argument("-t", "--tint_range", default=5, type=int)
+ap.add_argument("-s", "--shades_range", default=10, type=int)
+ap.add_argument("-t", "--tint_range", default=8, type=int)
 args = vars(ap.parse_args())
 
 # generating centers of a cluster
 cluster_centers_ = kmeanss(args["image"], args["mink"], args["maxk"])
+for i in range(len(cluster_centers_)):
+    print(f"Color {i}: {cluster_centers_[i]}")
 
 # input target cluster
 target_cluster = input("Enter the target cluster from the plot generated (clusters starts from '0'):")
@@ -49,9 +51,9 @@ t5 = round(int(cluster_centers_[target_cluster][2])) + (tint_range * 13)
 
 def roundoff(tt):
     tt = int(tt)
-    if tt >= 255:
+    if tt > 255:
         tt = 255
-    elif tt <= 0:
+    elif tt < 0:
         tt = 0
     else:
         tt = tt
@@ -89,7 +91,7 @@ for x in range(0, img_width):
         if data[0] in range(roundoff(t), roundoff(t1)) and data[1] in range(roundoff(t2), roundoff(t3)) and data[2] in range(roundoff(t4), roundoff(t5)):
             src_img.putpixel((x, y), (
                 zerooff(args["target_rgb"][0], data[0], roundoff(t1)), zerooff(args["target_rgb"][1], data[1], roundoff(t3)),
-                zerooff(args["target_rgb"][2], data[2], roundoff(t5)) * 100))
+                zerooff(args["target_rgb"][2], data[2], roundoff(t5))))
 
 src_img.save(str(args["output"]) + '/result.jpg')
 res_img = Image.open(str(args["output"]) + '/result.jpg')

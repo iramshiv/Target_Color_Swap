@@ -12,6 +12,7 @@ from matplotlib.pyplot import ion
 from sklearn.cluster import KMeans
 from joblib import Parallel, delayed
 
+
 def kmeanss(simage, min_k, max_k):
     src_image = cv2.imread(simage)
     image = cv2.cvtColor(src_image, cv2.COLOR_BGR2RGB)
@@ -29,6 +30,7 @@ def kmeanss(simage, min_k, max_k):
     # print(best_k)
     clt = KMeans(n_clusters=best_k)
     clt.fit(image)
+    # print(clt.cluster_centers_)
     print("------Clustering Finished!!!")
 
     # build a histogram of clusters and then create a figure
@@ -148,3 +150,6 @@ def kmeansres(data, k, alpha_k=0.02):
     kmeans = KMeans(n_clusters=k, random_state=0).fit(data)
     inertia = kmeans.inertia_ / inertia_o + alpha_k * k
     return inertia
+
+
+#kmeanss("replicate-prediction-v86q8ar105rj40ck0qm8pqsafw.png", 2, 7)
