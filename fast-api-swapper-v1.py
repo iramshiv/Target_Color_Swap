@@ -2,9 +2,8 @@
 # ENDPOINT 2 User Selects a color and swap color -> Color swap algo -> returns the image
 # ENDPOINT 3 user redo (2) / save / continue (Endpoint 3)  -> # 2 / exit -> DB Store
 
-from typing import Union, List, Annotated
+from typing import Annotated
 from fastapi import FastAPI, HTTPException, Query
-import random
 from color_swaper_v1 import get_colors, swapper, save
 
 app = FastAPI()
@@ -33,7 +32,7 @@ async def color_cluster(id1: str, img1: str, mink: int = 2, maxk: int = 5):
 
 
 @app.post("/swap/", status_code=200)
-async def color_swapper(id1: str, img1: str, tgt_color: int, rgb:  Annotated[list[str] | None, Query()] = None, shade: int = 5, tint: int = 5):
+async def color_swapper(id1: str, img1: str, tgt_color: int, shade: int = 5, tint: int = 5, rgb: Annotated[list[int] | None, Query()] = None):
     try:
         swap_image = swapper(img1, shade, tint, tgt_color, rgb, id1)
     except:
@@ -43,7 +42,7 @@ async def color_swapper(id1: str, img1: str, tgt_color: int, rgb:  Annotated[lis
 
 
 @app.post("/save/", status_code=200)
-async def save_color(id1: str, tgt_color: int, rgb: Annotated[list[str] | None, Query()] = None):
+async def save_color(id1: str, tgt_color: int, rgb: Annotated[list[int] | None, Query()] = None):
     try:
         save(id1, tgt_color, rgb)
     except:
